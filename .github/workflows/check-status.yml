@@ -38,3 +38,13 @@ jobs:
           else
             echo "No status change."
           fi
+
+      # Optional: notify subscribers when overall status changes.
+      # Uncomment and configure once you have an email/webhook provider and a
+      # repo secret (Settings -> Secrets and variables -> Actions).
+      #
+      # - name: Notify subscribers on status change
+      #   if: env.STATUS_CHANGED == 'true'
+      #   env:
+      #     NOTIFY_API_KEY: ${{ secrets.NOTIFY_API_KEY }}
+      #   run: node scripts/notify-subscribers.mjs
