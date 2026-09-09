@@ -1,0 +1,20 @@
+[
+  {
+    "id": "example-incident-1",
+    "title": "Example: elevated latency on the public API",
+    "components": ["public-api"],
+    "started_at": "2026-08-01T14:00:00-07:00",
+    "resolved_at": "2026-08-01T15:30:00-07:00",
+    "status": "resolved",
+    "updates": [
+      {
+        "at": "2026-08-01T14:00:00-07:00",
+        "text": "Replace this with a real incident, or remove it. Each update is a timestamped note."
+      },
+      {
+        "at": "2026-08-01T15:30:00-07:00",
+        "text": "Resolved. Root cause and any follow-up."
+      }
+    ]
+  }
+]
