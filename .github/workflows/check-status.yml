@@ -1,0 +1,40 @@
+name: Check MIDAS status
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # every 5 minutes
+  workflow_dispatch: {}      # allows manual "Run workflow" from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: check-status
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run status check
+        run: node scripts/check-status.mjs
+
+      - name: Commit status.json if changed
+        run: |
+          git config user.name "midas-status-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/status.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update status.json [skip ci]"
+            git push
+          else
+            echo "No status change."
+          fi
