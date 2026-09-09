@@ -14,17 +14,10 @@ const COMPONENTS = [
     timeoutMs: 8000
   },
   {
-    id: "jobs-endpoint",
-    name: "Async /jobs endpoint",
-    description: "Async job submission and polling",
-    url: "https://REPLACE-WITH-MIDAS-API-HOST/jobs", // placeholder
-    timeoutMs: 8000
-  },
-  {
     id: "docs",
     name: "Documentation",
     description: "API reference and integration guides",
-    url: "https://REPLACE-WITH-DOCS-URL", // placeholder
+    url: "https://midasapi.energy.ca.gov/docs", // placeholder
     timeoutMs: 8000
   }
 ];
