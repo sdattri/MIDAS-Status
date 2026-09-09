@@ -65,7 +65,7 @@ function renderComponents(components) {
         </div>
         <div class="component-meta">
           <span class="status-label" data-status="${c.status}">${STATUS_LABELS[c.status] || c.status}</span>
-          <span class="checked-at">Checked ${formatPT(c.checked_at)}</span>
+          <span class="checked-at">Checked ${formatPT(c.checked_at)}${c.version ? ` &middot; v${c.version}` : ""}</span>
         </div>
       </div>`;
     list.appendChild(li);
