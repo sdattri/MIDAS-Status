@@ -1,31 +1,23 @@
 {
-  "generated_at": "2026-09-09T19:46:35.064Z",
-  "overall": "outage",
+  "generated_at": "2026-09-09T19:59:12.164Z",
+  "overall": "operational",
   "components": [
     {
       "id": "public-api",
       "name": "Public API",
       "description": "GET endpoints for rate, GHG, and Flex Alert data",
       "status": "operational",
-      "latency_ms": 448,
+      "latency_ms": 254,
       "version": "2.0.7",
-      "checked_at": "2026-09-09T19:46:35.064Z"
-    },
-    {
-      "id": "jobs-endpoint",
-      "name": "Async /jobs endpoint",
-      "description": "Async job submission and polling",
-      "status": "outage",
-      "latency_ms": null,
-      "checked_at": "2026-09-09T19:46:34.683Z"
+      "checked_at": "2026-09-09T19:59:12.164Z"
     },
     {
       "id": "docs",
       "name": "Documentation",
       "description": "API reference and integration guides",
-      "status": "outage",
-      "latency_ms": null,
-      "checked_at": "2026-09-09T19:46:34.685Z"
+      "status": "operational",
+      "latency_ms": 191,
+      "checked_at": "2026-09-09T19:59:12.162Z"
     }
   ]
 }
