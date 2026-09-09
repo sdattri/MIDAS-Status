@@ -10,7 +10,7 @@ const COMPONENTS = [
     id: "public-api",
     name: "Public API",
     description: "GET endpoints for rate, GHG, and Flex Alert data",
-    url: "https://REPLACE-WITH-MIDAS-API-HOST/rateinfo", // placeholder
+    url: "https://midasapi.energy.ca.gov/health",
     timeoutMs: 8000
   },
   {
@@ -37,17 +37,38 @@ async function checkOne(component) {
     const res = await fetch(component.url, {
       method: "GET",
       signal: controller.signal,
-      headers: { "User-Agent": "midas-status-checker" }
+      headers: { "User-Agent": "midas-status-checker", Accept: "application/json" }
     });
     clearTimeout(timer);
     const latency_ms = Date.now() - started;
 
+    // Start from the HTTP status code as a baseline signal.
     let status = "operational";
     if (res.status >= 500) status = "outage";
     else if (res.status >= 400) status = "degraded";
     else if (latency_ms > 5000) status = "degraded";
 
-    return { ...component, status, latency_ms, checked_at: new Date().toISOString() };
+    // If the endpoint returns a JSON health body (e.g. {"status":"healthy", ...}),
+    // prefer that over the bare status code -- a 200 can still report itself unhealthy.
+    let version;
+    try {
+      const body = await res.clone().json();
+      if (typeof body?.version === "string") version = body.version;
+      if (typeof body?.status === "string") {
+        const b = body.status.toLowerCase();
+        if (["healthy", "ok", "operational", "up"].includes(b)) {
+          status = latency_ms > 5000 ? "degraded" : "operational";
+        } else if (["degraded", "warn", "warning"].includes(b)) {
+          status = "degraded";
+        } else if (["unhealthy", "down", "outage", "error"].includes(b)) {
+          status = "outage";
+        }
+      }
+    } catch {
+      // Not JSON, or no body -- fall back to the status-code check above.
+    }
+
+    return { ...component, status, latency_ms, version, checked_at: new Date().toISOString() };
   } catch (err) {
     return {
       ...component,
