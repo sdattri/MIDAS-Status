@@ -14,9 +14,9 @@ result as `data/status.json`, which the page fetches from its own origin.
    `https://YOUR-ORG.github.io/YOUR-REPO/`.
 
 3. **Point the health checks at real MIDAS endpoints**
-   Edit `scripts/check-status.mjs` and replace the three placeholder `url`
-   values with real MIDAS endpoints you want monitored (e.g. a lightweight
-   public GET route for the API, a `/jobs` check, and your docs URL).
+   Edit `scripts/check-status.mjs` and replace the two placeholder `url`
+   values with real MIDAS endpoints you want monitored (a lightweight
+   public GET route for the API, and your docs URL).
 
 4. **Turn on the scheduled check**
    The workflow at `.github/workflows/check-status.yml` runs every 5 minutes
