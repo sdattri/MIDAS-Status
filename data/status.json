@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T19:17:35.944Z",
+  "generated_at": "2026-09-20T21:36:54.708Z",
   "overall": "operational",
   "components": [
     {
@@ -7,17 +7,17 @@
       "name": "Public API",
       "description": "GET endpoints for rate, GHG, and Flex Alert data",
       "status": "operational",
-      "latency_ms": 593,
+      "latency_ms": 399,
       "version": "2.0.7",
-      "checked_at": "2026-09-20T19:17:35.942Z"
+      "checked_at": "2026-09-20T21:36:54.708Z"
     },
     {
       "id": "docs",
       "name": "Documentation",
       "description": "API reference and integration guides",
       "status": "operational",
-      "latency_ms": 537,
-      "checked_at": "2026-09-20T19:17:35.944Z"
+      "latency_ms": 337,
+      "checked_at": "2026-09-20T21:36:54.706Z"
     }
   ]
 }
