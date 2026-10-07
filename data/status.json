@@ -1,23 +1,22 @@
 {
-  "generated_at": "2026-10-07T05:43:36.663Z",
-  "overall": "operational",
+  "generated_at": "2026-10-07T12:00:58.357Z",
+  "overall": "outage",
   "components": [
     {
       "id": "public-api",
       "name": "Public API",
       "description": "GET endpoints for rate, GHG, and Flex Alert data",
-      "status": "operational",
-      "latency_ms": 555,
-      "version": "2.0.7",
-      "checked_at": "2026-10-07T05:43:36.663Z"
+      "status": "outage",
+      "latency_ms": null,
+      "checked_at": "2026-10-07T12:00:58.300Z"
     },
     {
       "id": "docs",
       "name": "Documentation",
       "description": "API reference and integration guides",
-      "status": "operational",
-      "latency_ms": 485,
-      "checked_at": "2026-10-07T05:43:36.660Z"
+      "status": "outage",
+      "latency_ms": null,
+      "checked_at": "2026-10-07T12:00:58.357Z"
     }
   ]
 }
